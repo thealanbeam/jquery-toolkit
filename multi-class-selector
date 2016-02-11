@@ -1,0 +1,75 @@
+THE CSS
+
+.active {
+    background-color: #d5e2ff;
+}
+
+.items div {
+    display: none;
+}
+
+.items .fruit, .items .vegetable, .items .meat {
+    display: block;
+}
+
+-------
+
+THE HTML
+
+<div style="float:right; padding:25px;">
+    <button id="fruit" class="active"><span>fruit</span></button>
+    <button id="vegetable" class="active">vegetable</button>
+    <button id="meat" class="active">meat</button>
+</div>
+
+<div>
+<p>Trying to use buttons as an "or" case rather than "and." When choosing fuit or vegetable, I want to see tomato as part of the list, <em>not just</em> when both are selected.</p>  
+    <div class="items">
+        <div class="fruit"> <p>apples</p> </div>    
+        <div class="vegetable"> <p>pumpkin</p> </div>
+        <div class="vegetable"> <p>okra</p> </div>      
+        <div class="fruit"> <p>orange</p> </div>           
+        <div class="meat"> <p>beef</p>  </div>             
+        <div class="fruit vegetable"> <p>tomato</p> </div>      
+    </div>
+</div>
+
+------------
+
+
+THE JAVASCRIPT
+
+$("#fruit").click(function() {
+    if($(".fruit").length > 0){
+        $(".fruit").addClass("fruitNO").removeClass("fruit");
+    } 
+    else {
+        $(".fruitNO").addClass("fruit").removeClass("fruitNO");
+    }
+    $(this).toggleClass( "active" );
+});
+
+$("#vegetable").click(function() {
+    if($(".vegetable").length > 0){
+        $(".vegetable").addClass("vegetableNO").removeClass("vegetable");
+        console.log("vegetable");
+    } 
+    else {
+        $(".vegetableNO").addClass("vegetable").removeClass("vegetableNO");
+        console.log("vegetableNO");
+    }
+    $(this).toggleClass( "active" );
+});
+
+$("#meat").click(function() {
+    if($(".meat").length > 0){
+        $(".meat").addClass("meatNO").removeClass("meat");
+    }
+    else {
+        $(".meatNO").addClass("meat").removeClass("meatNO");
+    }
+    $(this).toggleClass( "active" );
+});
+
+
+
